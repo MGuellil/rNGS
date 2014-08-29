@@ -11,10 +11,12 @@
 
 filter_bams <- function(config_df_row){
 
-  message("Filtering BAM's")
   # filter bam files by a grade of mapping qualities
   
   fastq_file <- config_df_row[1]
+
+  message("\nFiltering BAM's for ", fastq_file, "\n")
+
   output_file <- file_path_sans_ext(fastq_file)
   bam_sort_rmdup_file <- paste(output_file, "_sort_rmdup.bam", sep = "")
   bam_sort_rmdup_file_q15 <- paste(output_file, "_sort_rmdup_q15.bam", sep = "")
