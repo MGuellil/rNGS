@@ -1,4 +1,4 @@
 rNGS
 ====
 
-R code to drive BWA and SAMtools
+**Experimental** R code to drive BWA and SAMtools
