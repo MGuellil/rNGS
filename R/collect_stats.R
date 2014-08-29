@@ -9,12 +9,12 @@
 #'@examples
 #'collect_stats(sample_data_frame_row)
 
-collect_stats <- function(config_df){
+collect_stats <- function(config_df_row){
   # generate a dataframe with our alignment stats
   # quite a long function which could probably benifit from a few vectors
   
   # generate number for raw reads
-  fastq_file <- config_df[1]
+  fastq_file <- config_df_row[1]
   #only want the sample name
   fastq_file_base <- strsplit(file_path_sans_ext(basename(fastq_file)), "_")[[1]][1]
   word_count_string <- paste("wc -l",

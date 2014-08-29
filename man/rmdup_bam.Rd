@@ -3,7 +3,7 @@
 \alias{rmdup_bam}
 \title{rmdup BAM}
 \usage{
-rmdup_bam(config_df)
+rmdup_bam(config_df_row)
 }
 \arguments{
 \item{sample}{dataframe row}

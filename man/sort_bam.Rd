@@ -3,7 +3,7 @@
 \alias{sort_bam}
 \title{Sort BAM}
 \usage{
-sort_bam(config_df)
+sort_bam(config_df_row)
 }
 \arguments{
 \item{sample}{dataframe row}

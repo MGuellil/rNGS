@@ -3,7 +3,7 @@
 \alias{bwa_samse}
 \title{BWA samse}
 \usage{
-bwa_samse(config_df_row)
+bwa_samse(config_df_row_row)
 }
 \arguments{
 \item{sample}{dataframe row}

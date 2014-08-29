@@ -3,7 +3,7 @@
 \alias{sam_to_bam}
 \title{SAM to BAM}
 \usage{
-sam_to_bam(config_df)
+sam_to_bam(config_df_row)
 }
 \arguments{
 \item{sample}{dataframe row}

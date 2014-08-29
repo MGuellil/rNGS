@@ -3,7 +3,7 @@
 \alias{collect_stats}
 \title{collect stats}
 \usage{
-collect_stats(config_df)
+collect_stats(config_df_row)
 }
 \arguments{
 \item{sample}{dataframe row}

@@ -12,9 +12,9 @@
 bwa_align <- function(config_df_row){
   
   # get all the things we need
-  fastq_file <- config_df[1]
-  genome <- config_df[5]
-  bwa_arguments <- config_df[3]
+  fastq_file <- config_df_row[1]
+  genome <- config_df_row[5]
+  bwa_arguments <- config_df_row[3]
   
   # generate the output string using the cool command
   # file_path_sans_ext

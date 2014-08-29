@@ -10,10 +10,10 @@
 #'sam_to_bam(sample_data_frame_row)
 
 
-sam_to_bam <- function(config_df){
+sam_to_bam <- function(config_df_row){
   
   # get the info we want
-  fastq_file <- config_df[1]
+  fastq_file <- config_df_row[1]
   
   # make the output file
   output_file <- file_path_sans_ext(fastq_file)

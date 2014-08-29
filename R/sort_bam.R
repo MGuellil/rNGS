@@ -10,9 +10,9 @@
 #'sort_bam(sample_data_frame_row)
 
 
-sort_bam <- function(config_df){
+sort_bam <- function(config_df_row){
   # function to preform sort bam file
-  fastq_file <- config_df[1]
+  fastq_file <- config_df_row[1]
   output_file <- file_path_sans_ext(fastq_file)
   bam_file <- paste(output_file, ".bam", sep = "")
   bam_sort_file <- paste(output_file, "_sort", sep = "")

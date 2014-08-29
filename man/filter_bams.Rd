@@ -3,7 +3,7 @@
 \alias{filter_bams}
 \title{filter BAM}
 \usage{
-filter_bams(config_df)
+filter_bams(config_df_row)
 }
 \arguments{
 \item{sample}{dataframe row}

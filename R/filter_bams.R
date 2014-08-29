@@ -9,10 +9,10 @@
 #'@examples
 #'filter_bams(sample_data_frame_row)
 
-filter_bams <- function(config_df){
+filter_bams <- function(config_df_row){
   # filter bam files by a grade of mapping qualities
   
-  fastq_file <- config_df[1]
+  fastq_file <- config_df_row[1]
   output_file <- file_path_sans_ext(fastq_file)
   bam_sort_rmdup_file <- paste(output_file, "_sort_rmdup.bam", sep = "")
   bam_sort_rmdup_file_q15 <- paste(output_file, "_sort_rmdup_q15.bam", sep = "")
