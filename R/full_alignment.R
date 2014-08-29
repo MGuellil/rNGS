@@ -20,16 +20,16 @@ full_alignment <- function(config_file){
                                     Aligned_reads_rmdup_q30 = numeric())
   
   samples_to_run_df <- read_samples(config_file)
-  
-  for (line in samples_to_run_df){
+ 
+  for (line in 1:length(samples_to_run_df)){
     # Helper function to run a complete alignme
-    bwa_align(line)
-    bwa_samse(line)
-    sam_to_bam(line)
-    sort_bam(line)
-    rmdup_bam(line)
-    filter_bams(line)
-    alignment_scores_df <- rbind(alignment_scores_df, collect_stats(line))
+    bwa_align(samples_to_run_df[line,])
+    bwa_samse(samples_to_run_df[line,])
+    sam_to_bam(samples_to_run_df[line,])
+    sort_bam(samples_to_run_df[line,])
+    rmdup_bam(samples_to_run_df[line,])
+    filter_bams(samples_to_run_df[line,])
+    alignment_scores_df <- rbind(alignment_scores_df, collect_stats(samples_to_run_df[line,]))
     
     # write output table 
     output_table <- paste(file_path_sans_ext(config_file),

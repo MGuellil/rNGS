@@ -9,7 +9,7 @@
 #'@examples
 #'bwa_samse(sample_data_frame_row)
 
-bwa_samse <- function(config_df_row_row){
+bwa_samse <- function(config_df_row){
   # bwa_samse a function to preform a BWA samse alingment
   
   # collect what I need
