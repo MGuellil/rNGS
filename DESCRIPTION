@@ -1,9 +1,10 @@
 Package: rNGS
 Type: Package
-Title: What the package does (short line)
+Title: r packge to drive a NGS alignment (BWA, SAMtools)
 Version: 1.0
 Date: 2014-08-29
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Matthew Teasdale
+Maintainer: Matthew <matthew@teasdale.xyz>
+Description: R code to drive a BWA alignment then filter the results with
+    samtools. Both programs need to be installed before the analysis is started
+License: GPL3
