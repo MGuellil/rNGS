@@ -19,7 +19,7 @@ sort_bam <- function(config_df_row){
   sort_string <- paste("samtools sort",
                        bam_file,
                        bam_sort_file)
-  message("Sorting BAM")
+  message("Sorting BAM \n")
   system(sort_string)
   
 }

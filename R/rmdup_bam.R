@@ -19,6 +19,6 @@ rmdup_bam <- function(config_df_row){
   rmdup_string <- paste("samtools rmdup -s",
                         bam_sort_file,
                         bam_sort_rmdup_file)
-  cat("Removing duplicates\n")
+  message("Removing duplicates\n")
   system(rmdup_string)
 }

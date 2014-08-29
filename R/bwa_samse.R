@@ -29,6 +29,6 @@ bwa_samse <- function(config_df_row){
                             ">",
                             sam_file)
   
-  message("Running BWA samse for ", fastq_file)
+  message("Running BWA samse for ", fastq_file, "\n")
   system(bwa_samse_string)
 }

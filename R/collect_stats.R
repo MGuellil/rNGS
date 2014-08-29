@@ -13,7 +13,7 @@ collect_stats <- function(config_df_row){
   # generate a dataframe with our alignment stats
   # quite a long function which could probably benifit from a few vectors
   
-  library("stringr")
+  library(stringr)
 
   # generate number for raw reads
   fastq_file <- config_df_row[1]

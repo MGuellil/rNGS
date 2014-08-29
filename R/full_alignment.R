@@ -21,7 +21,7 @@ full_alignment <- function(config_file){
   
   samples_to_run_df <- read_samples(config_file)
  
-  for (line in 1:length(samples_to_run_df)){
+  for (line in 1:nrow(samples_to_run_df)){
     # Helper function to run a complete alignme
     bwa_align(samples_to_run_df[line,])
     bwa_samse(samples_to_run_df[line,])

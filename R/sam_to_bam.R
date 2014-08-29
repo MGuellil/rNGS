@@ -26,6 +26,6 @@ sam_to_bam <- function(config_df_row){
                           ">",
                           bam_file)
   
-  message("SAM to BAM conversion")
+  message("SAM to BAM conversion \n")
   system(sam_bam_string)
 }
