@@ -10,6 +10,8 @@
 #'filter_bams(sample_data_frame_row)
 
 filter_bams <- function(config_df_row){
+
+  message("Filtering BAM's")
   # filter bam files by a grade of mapping qualities
   
   fastq_file <- config_df_row[1]

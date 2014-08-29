@@ -15,6 +15,8 @@ collect_stats <- function(config_df_row){
   
   library(stringr)
 
+  message("Collecting Stats\n")
+
   # generate number for raw reads
   fastq_file <- config_df_row[1]
   #only want the sample name
