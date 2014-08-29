@@ -3,12 +3,11 @@
 \alias{rNGS}
 \docType{package}
 \title{
-What the package does (short line)
-~~ package title ~~
+r packge to drive a NGS alignment using BWA and SAMtools
 }
 \description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
+R code to drive a BWA alignment then filter the results with
+    samtools. Both programs need to be installed before the analysis is started
 }
 \details{
 \tabular{ll}{
@@ -16,15 +15,14 @@ Package: \tab rNGS\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2014-08-29\cr
-License: \tab What license is it under?\cr
+License: \tab GPL3\cr
 }
 ~~ An overview of how to use the package, including the most important functions ~~
 }
 \author{
-Who wrote it
+Matthew Teasdale
 
-Maintainer: Who to complain to <yourfault@somewhere.net>
-~~ The author and/or maintainer of the package ~~
+Maintainer: Matthew Teasdale <matthew@teasdale.xyz>
 }
 \references{
 ~~ Literature or other references for background information ~~
