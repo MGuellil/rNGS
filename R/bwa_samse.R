@@ -1,17 +1,17 @@
 #' BWA samse
 #'
-#'R function to run the BWA "aln" method on our sample dataframe
+#'R function to run the BWA "samse"
 #'
-#'@param fastq_file - path of fastq file to use in alignment
-#'@param genome - path of genome to use in alignment
-#'@param read_groups - read group information for alignment
-#'@param sai_file - sai file for alignment
-#'@param sam_file - sam file for alignment
+#'@param fastq_file Input fastq file
+#'@param genome Genome for alignment
+#'@param read_groups Read group information for alignment
+#'@param sai_file Input sai file
+#'@param sam_file Output sam file
 #'@keywords BWA samse
 #'@export
-#'@import tools
 #'@examples
-#'bwa_samse(sample_data_frame_row)
+#'bwa_samse("fastq.fa", "genome.fa", 
+#'"read group string", "input.sai", "output.sam")
 
 bwa_samse <- function(fastq_file, genome, read_groups, sai_file, sam_file){  
   

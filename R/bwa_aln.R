@@ -1,21 +1,17 @@
  #' BWA align
  #'
- #'R function to run the BWA "aln" method on our sample dataframe
+ #'R function to run the BWA "aln" method
  #'
- #'@param fastq_file - path of fastq file to use in alignment
- #'@param genome - path of genome to use in alignment
- #'@param bwa_arguments - arguments for bwa
+ #'@param fastq_file Fastq file for alignment
+ #'@param genome BWA indexed genome to use in alignment
+ #'@param bwa_arguments Arguments for bwa
+ #'@param sai_file Output sai file
  #'@keywords BWA aln
  #'@export
  #'@examples
- #'bwa_align("fastq.fa", "genome.fa", "-t 4")
+ #'bwa_align("fastq.fa", "genome.fa", "-t 4", "ouput.sai")
  
-bwa_align <- function(fastq_file, genome, bwa_arguments){
-  
-  # generate the output string using the cool command
-  # file_path_sans_ext
-  output_file <- file_path_sans_ext(fastq_file)
-  sai_file <- paste(output_file, ".sai", sep = "")
+bwa_align <- function(fastq_file, genome, bwa_arguments, sai_file){
   
   # form my BWA aln string
   bwa_aln_string <- paste("bwa aln",
