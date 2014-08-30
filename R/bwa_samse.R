@@ -4,6 +4,9 @@
 #'
 #'@param fastq_file - path of fastq file to use in alignment
 #'@param genome - path of genome to use in alignment
+#'@param read_groups - read group information for alignment
+#'@param sai_file - sai file for alignment
+#'@param sam_file - sam file for alignment
 #'@keywords BWA samse
 #'@export
 #'@import tools
