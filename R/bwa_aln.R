@@ -2,19 +2,15 @@
  #'
  #'R function to run the BWA "aln" method on our sample dataframe
  #'
- #'@param sample dataframe
+ #'@param fastq_file - path of fastq file to use in alignment
+ #'@param genome - path of genome to use in alignment
+ #'@param bwa_arguments - arguments for bwa
  #'@keywords BWA aln
  #'@export
- #'@import tools
  #'@examples
- #'bwa_align(sample_data_frame_row)
+ #'bwa_align("fastq.fa", "genome.fa", "-t 4")
  
-bwa_align <- function(config_df_row){
-  
-  # get all the things we need
-  fastq_file <- config_df_row[1]
-  genome <- config_df_row[5]
-  bwa_arguments <- config_df_row[3]
+bwa_align <- function(fastq_file, genome, bwa_arguments){
   
   # generate the output string using the cool command
   # file_path_sans_ext
