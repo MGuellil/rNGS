@@ -8,7 +8,7 @@
 #'@export
 #'@import tools
 #'@examples
-#'rmdup_bam(input_sorted.bam, output_rmdup.bam)
+#'rmdup_bam("input_sorted.bam", "output_rmdup.bam")
 
 
 rmdup_bam <- function(input_sorted_bam, output_rmdup_bam){

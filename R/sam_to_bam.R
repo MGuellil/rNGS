@@ -7,7 +7,7 @@
 #'@keywords SAMtools
 #'@export
 #'@examples
-#'sam_to_bam(sample_data_frame_row)
+#'sam_to_bam("input.sam", "ouput.bam")
 
 
 sam_to_bam <- function(sam_file, bam_file){
