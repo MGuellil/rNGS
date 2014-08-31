@@ -2,23 +2,19 @@
 #'
 #'R function to remove BAM file duplicates
 #'
-#'@param sample dataframe row
+#'@param input_sorted_bam
+#'@param output_rmdup_bam
 #'@keywords SAMtools
 #'@export
 #'@import tools
 #'@examples
-#'rmdup_bam(sample_data_frame_row)
+#'rmdup_bam(input_sorted.bam, output_rmdup.bam)
 
 
-rmdup_bam <- function(config_df_row){
-  # function to remove duplicates in the bam file
-  fastq_file <- config_df_row[1]
-  output_file <- file_path_sans_ext(fastq_file)
-  bam_sort_file <- paste(output_file, "_sort.bam", sep = "")
-  bam_sort_rmdup_file <- paste(output_file, "_sort_rmdup.bam", sep = "")
+rmdup_bam <- function(input_sorted_bam, output_rmdup_bam){
   rmdup_string <- paste("samtools rmdup -s",
-                        bam_sort_file,
-                        bam_sort_rmdup_file)
-  message("Removing duplicates for ", fastq_file, "\n")
+                        input_sorted_bam,
+                        output_rmdup_bam)
+  message("Removing duplicates for ", input_sorted_bam, "\n")
   system(rmdup_string)
 }

@@ -2,24 +2,21 @@
 #'
 #'R function to sort BAM files
 #'
-#'@param sample dataframe row
+#'@param input_bam Input BAM file
+#'@param sorted_bam Output sorted BAM file
 #'@keywords SAMtools
 #'@export
 #'@import tools
 #'@examples
-#'sort_bam(sample_data_frame_row)
+#'sort_bam("input.bam", "output_sorted.bam")
 
 
-sort_bam <- function(config_df_row){
+sort_bam <- function(input_bam, sorted_bam){
   # function to preform sort bam file
-  fastq_file <- config_df_row[1]
-  output_file <- file_path_sans_ext(fastq_file)
-  bam_file <- paste(output_file, ".bam", sep = "")
-  bam_sort_file <- paste(output_file, "_sort", sep = "")
   sort_string <- paste("samtools sort",
-                       bam_file,
-                       bam_sort_file)
-  message("\nSorting BAM for ", fastq_file, "\n")
+                       input_bam,
+                       sorted_bam)
+  message("\nSorting BAM for ", input_bam, "\n")
   system(sort_string)
   
 }
