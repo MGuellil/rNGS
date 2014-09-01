@@ -18,7 +18,7 @@ filter_bam <- function(sort_rmdup_bam, map_qualities=c("15", "25", "30")){
   for (each in map_qualities){
     
     # Tell the user what we are up to
-    message("\n Filtering ", sort_rmdup_bam, " for qual ", each, "\n")
+    message("Filtering ", sort_rmdup_bam, " for qual ", each, "\n")
     
     # get the files sorted
     original_bam <- sort_rmdup_bam

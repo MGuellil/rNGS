@@ -14,7 +14,7 @@ read_samples <- function(config_file){
   number_of_samples_read <- nrow(samples_df)
   
   # tell the user how many samples we have read
-  message("\nRead ", number_of_samples_read, "sample/s for analysis\n") 
+  message("\nRead ", number_of_samples_read, " sample/s for analysis\n") 
   
   return(samples_df)
 }
