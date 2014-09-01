@@ -24,7 +24,7 @@ full_alignment <- function(config_file){
   for (line in 1:nrow(samples_to_run_df)){
     
     # get the current row
-    sampleRow = [line,]
+    sampleRow = samples_to_run_df[line,]
     
     #----- collect data 
     input_fastq = sampleRow$Input_File
@@ -51,8 +51,8 @@ full_alignment <- function(config_file){
     
     # write output table 
     #output_table <- paste(file_path_sans_ext(config_file),
-                          "_output_table.txt", 
-                          sep = "")
+    #                      "_output_table.txt", 
+    #                      sep = "")
     #write.csv(alignment_scores_df, output_table, row.names = FALSE)
     
   }
