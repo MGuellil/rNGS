@@ -5,7 +5,7 @@ rNGS
 
 Under active development likely to change and break often, highly specialised to my own data.
 
-Install at your own risk,
+The latest version can be installed with [devtools](http://www.rstudio.com/products/rpackages/devtools/)
 
 ```{R}
 install.packages("devtools")
