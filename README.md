@@ -10,4 +10,5 @@ Install at your own risk with [devtools](https://github.com/hadley/devtools) thu
 ```{R}
 install.packages("devtools")
 devtools::install_github("rNGS", "teasdalm")
+library("rNGS")
 ```
