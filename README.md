@@ -5,7 +5,7 @@ rNGS
 
 Under active development likely to change and break often, highly specialised to my own data.
 
-Install at your own risk with [devtools](https://github.com/hadley/devtools) thus...
+Install at your own risk,
 
 ```{R}
 install.packages("devtools")
