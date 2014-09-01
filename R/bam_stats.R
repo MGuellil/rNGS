@@ -1,26 +1,22 @@
-#' collect stats
+#' Bam stats
 #'
 #'R function to collect our sample stats
 #'
-#'@param sample dataframe row
+#'@param fastq_file input sample fastq files
 #'@keywords BAM file
 #'@export
 #'@import tools stringr
 #'@examples
-#'collect_stats(sample_data_frame_row)
+#'bam_stats(fastq_file)
 
-collect_stats <- function(config_df_row){
+bam_stats <- function(fastq_file){
   # generate a dataframe with our alignment stats
-  # quite a long function which could probably benifit from a few vectors
   
-  library(stringr)
-
-  # generate number for raw reads
-  fastq_file <- config_df_row[1]
+  #------- stats for fastq file
   message("Collecting Stats for ", fastq_file, "\n")
-
+  
   #only want the sample name
-  fastq_file_base <- strsplit(file_path_sans_ext(basename(fastq_file$Input_File)), "_")[[1]][1]
+  fastq_file_base <- strsplit(file_path_sans_ext(basename(fastq_file)), "_")[[1]][1]
   word_count_string <- paste("wc -l",
                              fastq_file)
   line_count_fastq_file <- system(word_count_string, inter = TRUE)
@@ -29,18 +25,27 @@ collect_stats <- function(config_df_row){
   
   raw_reads = line_numbers / 4
   
-  # generate number for bam files
+  #---- stats for bam file 
   output_file <- file_path_sans_ext(fastq_file)
   bam_file <- paste(output_file, ".bam", sep = "")
-  bam_sort_rmdup_file <- paste(output_file, "_sort_rmdup.bam", sep = "")
-  bam_sort_rmdup_file_q15 <- paste(output_file, "_sort_rmdup_q15.bam", sep = "")
-  bam_sort_rmdup_file_q25 <- paste(output_file, "_sort_rmdup_q25.bam", sep = "")
-  bam_sort_rmdup_file_q30 <- paste(output_file, "_sort_rmdup_q30.bam", sep = "")
-  
   bam_stat_line = paste("samtools flagstat",
                         bam_file)
+  bam_stats <- system(bam_stat_line, intern = TRUE)
+  bam_score <- as.numeric(strsplit(bam_stats[3], " ")[[1]][1])
+  
+  #---- stats for rmdup bam
+  bam_sort_rmdup_file <- paste(output_file, "_sorted_rmdup.bam", sep = "")
   bam_rmdup_stat_line = paste("samtools flagstat",
                               bam_sort_rmdup_file)
+  bam_rmdup_stats <- system(bam_rmdup_stat_line, intern = TRUE)
+  bam_rmdup_score <- as.numeric(strsplit(bam_rmdup_stats[3], " ")[[1]][1])
+  
+  #----- stats for other qulaities needs a loop
+  
+  bam_sort_rmdup_file_q15 <- paste(output_file, "_sorted_rmdup_q15.bam", sep = "")
+  bam_sort_rmdup_file_q25 <- paste(output_file, "_sorted_rmdup_q25.bam", sep = "")
+  bam_sort_rmdup_file_q30 <- paste(output_file, "_sorted_rmdup_q30.bam", sep = "")
+  
   bam_rmdup_q15_stat_line = paste("samtools flagstat",
                                   bam_sort_rmdup_file_q15)
   bam_rmdup_q25_stat_line = paste("samtools flagstat",
@@ -48,17 +53,16 @@ collect_stats <- function(config_df_row){
   bam_rmdup_q30_stat_line = paste("samtools flagstat",
                                   bam_sort_rmdup_file_q30)
   
-  bam_stats <- system(bam_stat_line, intern = TRUE)
-  bam_rmdup_stats <- system(bam_rmdup_stat_line, intern = TRUE)
   bam_rmdup_q15_stats <- system(bam_rmdup_q15_stat_line, intern = TRUE)
   bam_rmdup_q25_stats <- system(bam_rmdup_q25_stat_line, intern = TRUE)
   bam_rmdup_q30_stats <- system(bam_rmdup_q30_stat_line, intern = TRUE)
   
-  bam_score <- as.numeric(strsplit(bam_stats[3], " ")[[1]][1])
-  bam_rmdup_score <- as.numeric(strsplit(bam_rmdup_stats[3], " ")[[1]][1])
   bam_rmdup_q15_score <- as.numeric(strsplit(bam_rmdup_q15_stats[3], " ")[[1]][1])
   bam_rmdup_q25_score <- as.numeric(strsplit(bam_rmdup_q25_stats[3], " ")[[1]][1])
   bam_rmdup_q30_score <- as.numeric(strsplit(bam_rmdup_q30_stats[3], " ")[[1]][1])
+  
+  
+  #--- collect final score and report
   
   final_score = data.frame(Sample_name = fastq_file_base,
                            Raw_reads = raw_reads, 

@@ -7,7 +7,7 @@
 #'@export
 #'@import tools
 #'@examples
-#'full_alignment(sample_data_frame_row)
+#'full_alignment("config".csv)
 
 full_alignment <- function(config_file){
   
@@ -24,18 +24,18 @@ full_alignment <- function(config_file){
   for (line in 1:nrow(samples_to_run_df)){
     
     # get the current row
-    sampleRow = samples_to_run_df[line,]
+    sampleRow <- samples_to_run_df[line,]
     
     #----- collect data 
-    input_fastq = sampleRow$Input_File
-    read_group_info = sampleRow$Read_Group
-    bwa_arguments = sampleRow$BWA_Arguments
-    genome = sampleRow$Genome
-    sai_file = paste0(file_path_sans_ext(input_fastq),".sai")
-    sam_file = paste0(file_path_sans_ext(input_fastq),".sam")
-    bam_file = paste0(file_path_sans_ext(input_fastq),".bam")
-    sorted_bam = paste0(file_path_sans_ext(input_fastq),"_sorted.bam")
-    rmdup_bam = paste0(file_path_sans_ext(input_fastq),"_sorted_rmdup.bam")
+    input_fastq <- sampleRow$Input_File
+    read_group_info <- sampleRow$Read_Group
+    bwa_arguments <- sampleRow$BWA_Arguments
+    genome <- sampleRow$Genome
+    sai_file <- paste0(file_path_sans_ext(input_fastq),".sai")
+    sam_file <- paste0(file_path_sans_ext(input_fastq),".sam")
+    bam_file <- paste0(file_path_sans_ext(input_fastq),".bam")
+    sorted_bam <- paste0(file_path_sans_ext(input_fastq),"_sorted.bam")
+    rmdup_bam <- paste0(file_path_sans_ext(input_fastq),"_sorted_rmdup.bam")
     
     #------- run BWA
     bwa_align(input_fastq, genome, bwa_arguments, sai_file)
@@ -46,14 +46,15 @@ full_alignment <- function(config_file){
     sort_bam(bam_file, sorted_bam)
     rmdup_bam(sorted_bam, rmdup_bam)
 
-    #filter_bams(samples_to_run_df[line,])
-    #alignment_scores_df <- rbind(alignment_scores_df, collect_stats(samples_to_run_df[line,]))
+    #------- filter BAM and collect stats
+    filter_bam(rmdup_bam)
+    alignment_scores_df <- rbind(alignment_scores_df, bam_stats(input_fastq))
     
     # write output table 
-    #output_table <- paste(file_path_sans_ext(config_file),
-    #                      "_output_table.txt", 
-    #                      sep = "")
-    #write.csv(alignment_scores_df, output_table, row.names = FALSE)
+    output_table <- paste(file_path_sans_ext(config_file),
+                          "_output_table.txt", 
+                          sep = "")
+    write.csv(alignment_scores_df, output_table, row.names = FALSE)
     
   }
 }

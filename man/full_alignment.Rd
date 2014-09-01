@@ -12,7 +12,7 @@ full_alignment(config_file)
 R function to preform full NGS alignment
 }
 \examples{
-full_alignment(sample_data_frame_row)
+full_alignment("config".csv)
 }
 \keyword{BWA}
 \keyword{SAMtools}

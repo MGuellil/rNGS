@@ -13,6 +13,8 @@
 
 sort_bam <- function(input_bam, sorted_bam){
   # function to preform sort bam file
+  
+  sorted_bam <- file_path_sans_ext(sorted_bam)
   sort_string <- paste("samtools sort",
                        input_bam,
                        sorted_bam)

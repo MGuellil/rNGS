@@ -14,16 +14,20 @@
 #'"read group string", "input.sai", "output.sam")
 
 bwa_samse <- function(fastq_file, genome, read_groups, sai_file, sam_file){  
-  
+
+  # format read group line 
+  read_group_formated = paste0("'", read_groups, "'")
+ 
   # form my BWA samse string
   bwa_samse_string <- paste("bwa samse -r",
-                            read_groups,
+                            read_group_formated,
                             genome,
                             sai_file,
                             fastq_file,
                             ">",
                             sam_file)
   
+  # run samse
   message("\nRunning BWA samse for ", fastq_file, "\n")
   system(bwa_samse_string)
 }

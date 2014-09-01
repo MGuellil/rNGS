@@ -8,3 +8,5 @@ Maintainer: Matthew <matthew@teasdale.xyz>
 Description: R code to drive a BWA alignment then filter the results with
     samtools. Both programs need to be installed before the analysis is started
 License: GPL3
+Imports:
+    stringr
