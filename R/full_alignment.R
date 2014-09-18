@@ -27,7 +27,7 @@ full_alignment <- function(config_file){
     sampleRow <- samples_to_run_df[line,]
     
     #----- collect data 
-    input_fastq <- sampleRow$Input_File
+    input_fastq <- drive_cutadapt(sampleRow$Input_File)
     read_group_info <- sampleRow$Read_Group
     bwa_arguments <- sampleRow$BWA_Arguments
     genome <- sampleRow$Genome
