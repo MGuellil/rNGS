@@ -43,7 +43,9 @@ drive_cutadapt <- function(raw_fastq,
                            "-e", error,
                            "-a", adapter,
                            raw_fastq,
+                           ">",
                            output_file_full_path_fastq,
+                           "2>",
                            output_file_full_path_log)
   # Run command
   system(cutadapt_string)
