@@ -22,7 +22,7 @@ drive_cutadapt <- function(raw_fastq,
                            adapter = "AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC",
                            return_name = TRUE){
   
-  message("Running cutadapt for ", raw_fastq)
+  message("Running cutadapt for ", raw_fastq, "\n")
   
   # create output files
   output_file_name_fastq <- paste0(strsplit(basename(raw_fastq), "_")[[1]][1],
