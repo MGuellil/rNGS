@@ -4,6 +4,8 @@
 #'and the X-Chromosome
 #'
 #'@param bam_file BAM f alignment
+#'@param need_index Do we need to index the BAM file default is TRUE
+#'@param draw_plot Do you want an output plot default is TRUE
 #'@keywords SAMtools
 #'@import ggplot2
 #'@export
@@ -27,16 +29,19 @@ sex_info <- function(bam_file, need_index = TRUE, draw_plot=TRUE){
   
   # Read idx stats
   idx_stats <- system(paste("samtools idxstats", 
-                       "~/Desktop/repeats/KRP_merge.bam"), 
+                       bam_file), 
                  intern =TRUE)
   
   # use string split and a lambda function to split the results on tabs
-  idx_mx <- t(data.frame(sapply(test, function (x) (strsplit(x, "\t")))))
+  idx_mx <- t(
+    data.frame(
+      sapply(idx_stats, function (x) (
+        strsplit(x, split="\t")))))
   
   # create the final dataframe
   rownames(idx_mx) <- NULL
   idx_df <- data.frame(idx_mx, stringsAsFactors = FALSE)
-  colnames(idx_df) <- c("Chr", "Chr_Length", "Aligned_Reads", "Unaligned_Reads")
+  colnames(idx_df) <- c("Chr", "Chr_Length", "Aligned_Reads", "Un-aligned_Reads")
   idx_df$Chr_Length <- as.numeric(idx_df$Chr_Length)
   idx_df$Aligned_Reads <- as.numeric(idx_df$Aligned_Reads)
 
@@ -51,4 +56,6 @@ sex_info <- function(bam_file, need_index = TRUE, draw_plot=TRUE){
       ggplot2::geom_smooth(method=lm, se=FALSE) 
     
   }
+  
+  return(idx_df)
 }
