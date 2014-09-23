@@ -51,10 +51,12 @@ sex_info <- function(bam_file, need_index = TRUE, draw_plot=TRUE){
   ## --------- plot the results if draw_plot is TRUE
   # Use ggplot2 to plot the results
   if (draw_plot){
-    ggplot2::ggplot(idx_df, aes(Chr_Length, Aligned_Reads)) + 
+    idx_plot <- ggplot2::ggplot(idx_df, aes(Chr_Length, Aligned_Reads)) + 
       ggplot2::geom_text(aes(label=Chr), size=4, vjust=0) + 
       ggplot2::geom_smooth(method=lm, se=FALSE) 
     
+    # Draw plot
+    print(idx_plot)
   }
   
   return(idx_df)
