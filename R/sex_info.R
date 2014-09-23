@@ -12,7 +12,7 @@
 #'@examples
 #'sex_info(bam_file)
 
-sex_info <- function(bam_file, need_index = TRUE, draw_plot=TRUE){
+sex_info <- function(bam_file, need_index = TRUE, draw_plot = TRUE){
   
   ## --------- index bam file if needed
   if (need_index){
@@ -30,7 +30,7 @@ sex_info <- function(bam_file, need_index = TRUE, draw_plot=TRUE){
   # Read idx stats
   idx_stats <- system(paste("samtools idxstats", 
                        bam_file), 
-                 intern =TRUE)
+                 intern = TRUE)
   
   # use string split and a lambda function to split the results on tabs
   idx_mx <- t(
