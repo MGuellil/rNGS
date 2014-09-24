@@ -36,7 +36,7 @@ sex_info <- function(bam_file, need_index = TRUE, draw_plot = TRUE){
   idx_mx <- t(
     data.frame(
       sapply(idx_stats, function (x) (
-        strsplit(x, split="\t")))))
+        strsplit(x, split="\t"))), stringsAsFactors = FALSE))
   
   # create the final dataframe
   rownames(idx_mx) <- NULL
