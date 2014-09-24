@@ -8,6 +8,7 @@
 #'@param draw_plot Do you want an output plot default is TRUE
 #'@keywords SAMtools
 #'@import ggplot2
+#'@import tools
 #'@export
 #'@examples
 #'sex_info(bam_file)
@@ -51,12 +52,14 @@ sex_info <- function(bam_file, need_index = TRUE, draw_plot = TRUE){
   ## --------- plot the results if draw_plot is TRUE
   # Use ggplot2 to plot the results
   if (draw_plot){
+    pdf(paste0(file_path_sans_ext(bam_file),"_regression_plot.pdf"))
     idx_plot <- ggplot2::ggplot(idx_df, aes(Chr_Length, Aligned_Reads)) + 
       ggplot2::geom_text(aes(label=Chr), size=4, vjust=0) + 
       ggplot2::geom_smooth(method=lm, se=FALSE) 
     
     # Draw plot
     print(idx_plot)
+    dev.off()
   }
   
   return(idx_df)
