@@ -5,11 +5,16 @@ rNGS
 
 Under active development likely to change and break often, highly specialised to my own data.
 
-The latest version can be installed with [devtools](http://www.rstudio.com/products/rpackages/devtools/)
+The latest version can be installed with [devtools](http://www.rstudio.com/products/rpackages/devtools/).
 
-Requires [ggplot2](http://ggplot2.org/)
+* Requires the following R package [ggplot2](http://ggplot2.org/) 
 
-Example files are in data/
+* Needs the following pre-installed 
+  * [BWA](http://bio-bwa.sourceforge.net/) 
+  * [SAMtools](http://samtools.sourceforge.net/)
+  * [Cutadapt](https://code.google.com/p/cutadapt/) 
+
+* Example files are in data/
 
 * Basic overview
 ```{R}
