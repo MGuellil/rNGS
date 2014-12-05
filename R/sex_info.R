@@ -1,4 +1,4 @@
-#' Sex Info
+#' Karyotype Info
 #'
 #'R function to try to sex an aDNA sample by using alignment to autosomes 
 #'and the X-Chromosome
@@ -11,9 +11,9 @@
 #'@import tools
 #'@export
 #'@examples
-#'sex_info(bam_file)
+#'Karyotype_info(bam_file)
 
-sex_info <- function(bam_file, need_index = TRUE, draw_plot = TRUE){
+karyotype_info <- function(bam_file, need_index = TRUE, draw_plot = TRUE){
   
   ## --------- index bam file if needed
   if (need_index){
