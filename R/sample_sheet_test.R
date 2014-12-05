@@ -17,7 +17,7 @@ sample_sheet_test <- function(barcode_file) {
   # Column labels some useful some place holders
 	dat <- read.csv(barcode_file,skip=19,header=F,col.names=c("Sample_Name","A","B","C","Barcode_ID","Barcode_Sequence","E","F"))
 
-  message("These are your barcodes......")
+  message("These are your barcodes......\n")
 		
 	print(dat[,c("Sample_Name","Barcode_ID","Barcode_Sequence")])
 		
@@ -61,7 +61,7 @@ sample_sheet_test <- function(barcode_file) {
 				 "Base 6",
 				"Base 7")
 		
-	message("Number of bases per channel..... red or green must not = 0","\n")
+	message("\nNumber of bases per channel..... red or green must not = 0","\n")
 	message("Red = A or C, Green = G or T","\n")
 					 
 	print(channels)
@@ -69,7 +69,4 @@ sample_sheet_test <- function(barcode_file) {
 	par(xpd=TRUE,mar=c(5,4,4,5))
 	barplot(t(channels),col=c("red","green"),xlab="Barcode position",ylab="Red and Green Counts")
 	legend(par("usr")[2],par("usr")[4],c("Red","Green"),pch=15,col=c("red","green"))
-	cat("\n")
-	cat("Finished plot","\n")
-	cat("\n")
 }
