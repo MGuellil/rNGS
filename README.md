@@ -12,9 +12,14 @@ Requires [ggplot2](http://ggplot2.org/)
 Example files are in data/
 
 ```{R}
+# Install required packages
 install.packages("ggplot2")
 install.packages("devtools")
+
+# Load rNGS
 devtools::install_github("teasdalm/rNGS")
 library(rNGS)
+
+# Preform a full alignment
 full_alignment("path_to_config_file/config_file.csv")
 ```
