@@ -6,7 +6,7 @@
 #'@keywords Sample Sheet
 #'@export
 #'@examples
-#'sample_sheet_test(barcode_file)
+#'sample_sheet_test(sample_sheet)
 
 
 sample_sheet_test <- function(barcode_file) {
