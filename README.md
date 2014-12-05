@@ -11,6 +11,7 @@ Requires [ggplot2](http://ggplot2.org/)
 
 Example files are in data/
 
+* Basic overview
 ```{R}
 # Install required packages
 install.packages("ggplot2")
