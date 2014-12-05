@@ -65,7 +65,7 @@ bam_stats <- function(fastq_file){
   #--- collect final score and report
   
   final_score = data.frame(Sample_name = fastq_file_base,
-                           Raw_reads = raw_reads, 
+                           Raw_reads_post_cutadapt = raw_reads, 
                            Aligned_reads_raw = bam_score, 
                            Aligned_reads_rmdup = bam_rmdup_score,
                            Aligned_reads_rmdup_q15 = bam_rmdup_q15_score,
