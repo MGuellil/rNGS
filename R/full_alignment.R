@@ -49,7 +49,7 @@ full_alignment <- function(config_file){
 
     #------- filter BAM and collect stats
     filter_bam(rmdup_bam)
-    alignment_scores_df <- rbind(alignment_scores_df, bam_stats(input_fastq))
+    alignment_scores_df <- rbind(alignment_scores_df, bam_stats(input_fastq, sampleRow$Input_File))
     
     # write output table 
     output_table <- paste(file_path_sans_ext(config_file),

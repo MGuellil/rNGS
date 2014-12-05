@@ -3,7 +3,7 @@
 \alias{bam_stats}
 \title{Bam stats}
 \usage{
-bam_stats(fastq_file)
+bam_stats(fastq_file_cutadapt, fastq_raw)
 }
 \arguments{
 \item{fastq_file}{input sample fastq files}
