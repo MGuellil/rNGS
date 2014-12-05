@@ -16,4 +16,5 @@ install.packages("ggplot2")
 install.packages("devtools")
 devtools::install_github("teasdalm/rNGS")
 library(rNGS)
+full_alignment("path_to_config_file/config_file.csv")
 ```
