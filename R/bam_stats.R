@@ -40,27 +40,16 @@ bam_stats <- function(fastq_file, fastq_raw){
   bam_rmdup_stats <- system(bam_rmdup_stat_line, intern = TRUE)
   bam_rmdup_score <- as.numeric(strsplit(bam_rmdup_stats[3], " ")[[1]][1])
   
-  #----- stats for other qulaities needs a loop
+  #----- stats for q25
   
-  bam_sort_rmdup_file_q15 <- paste(output_file, "_sorted_rmdup_q15.bam", sep = "")
   bam_sort_rmdup_file_q25 <- paste(output_file, "_sorted_rmdup_q25.bam", sep = "")
-  bam_sort_rmdup_file_q30 <- paste(output_file, "_sorted_rmdup_q30.bam", sep = "")
-  
-  bam_rmdup_q15_stat_line = paste("samtools flagstat",
-                                  bam_sort_rmdup_file_q15)
+
   bam_rmdup_q25_stat_line = paste("samtools flagstat",
                                   bam_sort_rmdup_file_q25)
-  bam_rmdup_q30_stat_line = paste("samtools flagstat",
-                                  bam_sort_rmdup_file_q30)
   
-  bam_rmdup_q15_stats <- system(bam_rmdup_q15_stat_line, intern = TRUE)
   bam_rmdup_q25_stats <- system(bam_rmdup_q25_stat_line, intern = TRUE)
-  bam_rmdup_q30_stats <- system(bam_rmdup_q30_stat_line, intern = TRUE)
   
-  bam_rmdup_q15_score <- as.numeric(strsplit(bam_rmdup_q15_stats[3], " ")[[1]][1])
   bam_rmdup_q25_score <- as.numeric(strsplit(bam_rmdup_q25_stats[3], " ")[[1]][1])
-  bam_rmdup_q30_score <- as.numeric(strsplit(bam_rmdup_q30_stats[3], " ")[[1]][1])
-  
   
   #--- collect final score and report
   
@@ -68,9 +57,7 @@ bam_stats <- function(fastq_file, fastq_raw){
                            Raw_reads = raw_reads, 
                            Aligned_reads_raw = bam_score, 
                            Aligned_reads_rmdup = bam_rmdup_score,
-                           Aligned_reads_rmdup_q15 = bam_rmdup_q15_score,
-                           Aligned_reads_rmdup_q25 = bam_rmdup_q25_score,
-                           Aligned_reads_rmdup_q30 = bam_rmdup_q30_score)
+                           Aligned_reads_rmdup_q25 = bam_rmdup_q25_score)
   
   return(final_score)
 }

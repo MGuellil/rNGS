@@ -55,7 +55,10 @@ full_alignment <- function(config_file){
     output_table <- paste(file_path_sans_ext(config_file),
                           "_output_table.csv", 
                           sep = "")
-    write.csv(alignment_scores_df, output_table, row.names = FALSE)
-    
   }
+  
+  # ------------ Calculate some percentaged and write table
+  alignment_scores_df$Aligned_reads_rmdup_per <- (alignment_scores_df$Aligned_reads_rmdup / alignment_scores_df$Raw_reads) *100
+  alignment_scores_df$Aligned_reads_rmdup_q25_per <- (alignment_scores_df$Aligned_reads_rmdup_q25 / alignment_scores_df$Raw_reads) *100
+  write.csv(alignment_scores_df, output_table, row.names = FALSE)
 }

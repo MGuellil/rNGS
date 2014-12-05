@@ -9,7 +9,7 @@
 #'@examples
 #'filter_bams("input_sort_rmdup.bam")
 
-filter_bam <- function(sort_rmdup_bam, map_qualities=c("15", "25", "30")){
+filter_bam <- function(sort_rmdup_bam, map_qualities=c("25")){
   
   # base bam file
   bam_base <- file_path_sans_ext(sort_rmdup_bam)
