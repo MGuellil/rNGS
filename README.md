@@ -28,4 +28,10 @@ library(rNGS)
 
 # Preform a full alignment
 full_alignment("path_to_config_file/config_file.csv")
+
+# Karyotype information
+karyotype_info("/path_to_bam_file/file.bam")
+
+# Sample sheet test
+sample_sheet_test("/path_to_sample_sheet/sample_sheet.csv")
 ```
