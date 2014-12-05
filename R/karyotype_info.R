@@ -11,7 +11,7 @@
 #'@import tools
 #'@export
 #'@examples
-#'Karyotype_info(bam_file)
+#'karyotype_info(bam_file)
 
 karyotype_info <- function(bam_file, need_index = TRUE, draw_plot = TRUE){
   
