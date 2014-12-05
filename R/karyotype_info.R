@@ -61,6 +61,6 @@ karyotype_info <- function(bam_file, need_index = TRUE, draw_plot = TRUE){
     print(idx_plot)
     dev.off()
   }
-  
+  message("Output writen to ", paste0(file_path_sans_ext(bam_file),"_regression_plot.pdf"), "\n")
   return(idx_df)
 }
