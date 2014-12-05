@@ -15,9 +15,7 @@ full_alignment <- function(config_file){
                                     Raw_reads = numeric(),
                                     Aligned_reads_raw = numeric(),
                                     Aligned_reads_rmdup = numeric(),
-                                    Aligned_reads_rmdup_q15 = numeric(),
-                                    Aligned_reads_rmdup_q25 = numeric(),
-                                    Aligned_reads_rmdup_q30 = numeric())
+                                    Aligned_reads_rmdup_q25 = numeric())
   
   samples_to_run_df <- read_samples(config_file)
  
