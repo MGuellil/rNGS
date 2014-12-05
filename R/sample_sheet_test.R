@@ -1,14 +1,23 @@
-sampleSheetTest <- function(file) {
-        ## 'file' is a csv file for the miSeq 
-        ## the script will calculate if both channels are being used
-		
+#' Sample Sheet Test
+#'
+#' R function to test a MiSeq sample sheet
+#'
+#'@param sample_sheet CSV file for MiSeq
+#'@keywords Sample Sheet
+#'@export
+#'@examples
+#'sample_sheet_test(barcode_file)
+
+
+sample_sheet_test <- function(barcode_file) {
+  
+  # Output dataframe	
 	channels <- data.frame(Red=numeric(0),Green=numeric(0))
-		
-	dat <- read.csv(file,skip=19,header=F,col.names=c("Sample_Name","A","B","C","Barcode_ID","Barcode_Sequence","E","F"))
-		
-	cat("\n")
-	cat("These are your barcodes.....","\n")
-	cat("\n")
+	
+  # Column labels some useful some place holders
+	dat <- read.csv(barcode_file,skip=19,header=F,col.names=c("Sample_Name","A","B","C","Barcode_ID","Barcode_Sequence","E","F"))
+
+  message("These are your barcodes......")
 		
 	print(dat[,c("Sample_Name","Barcode_ID","Barcode_Sequence")])
 		
@@ -52,11 +61,8 @@ sampleSheetTest <- function(file) {
 				 "Base 6",
 				"Base 7")
 		
-		
-	cat("\n")
-	cat("Number of bases per channel..... red or green must not = 0","\n")
-	cat("Red = A or C, Green = G or T","\n")
-	cat("\n")
+	message("Number of bases per channel..... red or green must not = 0","\n")
+	message("Red = A or C, Green = G or T","\n")
 					 
 	print(channels)
 		
@@ -66,5 +72,4 @@ sampleSheetTest <- function(file) {
 	cat("\n")
 	cat("Finished plot","\n")
 	cat("\n")
-
 }
