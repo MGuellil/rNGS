@@ -53,7 +53,7 @@ full_alignment <- function(config_file){
     
     # write output table 
     output_table <- paste(file_path_sans_ext(config_file),
-                          "_output_table.txt", 
+                          "_output_table.csv", 
                           sep = "")
     write.csv(alignment_scores_df, output_table, row.names = FALSE)
     
