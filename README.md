@@ -1,7 +1,7 @@
 rNGS
 ====
 
-**Experimental** R code to drive BWA and SAMtools
+**Experimental** R code for aDNA NGS analysis
 
 Under active development likely to change and break often, highly specialised to my own data.
 
