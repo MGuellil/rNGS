@@ -10,6 +10,7 @@ The latest version can be installed with [devtools](http://www.rstudio.com/produ
 Requires [ggplot2](http://ggplot2.org/)
 
 ```{R}
+install.packages("ggplot2")
 install.packages("devtools")
 devtools::install_github("rNGS", "teasdalm")
 library("rNGS")
