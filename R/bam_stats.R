@@ -9,14 +9,14 @@
 #'@examples
 #'bam_stats(fastq_file)
 
-bam_stats <- function(fastq_file_cutadapt, fastq_raw){
+bam_stats <- function(fastq_file, fastq_raw){
   # generate a dataframe with our alignment stats
   
   #------- stats for fastq file
   message("Collecting Stats for ", fastq_file, "\n")
   
   #only want the sample name
-  fastq_file_base <- strsplit(file_path_sans_ext(basename(fastq_file)), "_")[[1]][1]
+  fastq_file_base <- strsplit(file_path_sans_ext(basename(fastq_raw)), "_")[[1]][1]
   word_count_string <- paste("wc -l",
                              fastq_raw)
   line_count_fastq_file <- system(word_count_string, inter = TRUE)
