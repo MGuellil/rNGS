@@ -12,7 +12,7 @@ sample_sheet_test(barcode_file)
 R function to test a MiSeq sample sheet
 }
 \examples{
-sample_sheet_test(barcode_file)
+sample_sheet_test(sample_sheet)
 }
 \keyword{Sample}
 \keyword{Sheet}

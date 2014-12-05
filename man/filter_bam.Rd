@@ -3,7 +3,7 @@
 \alias{filter_bam}
 \title{filter BAM}
 \usage{
-filter_bam(sort_rmdup_bam, map_qualities = c("15", "25", "30"))
+filter_bam(sort_rmdup_bam, map_qualities = c("25"))
 }
 \arguments{
 \item{sort_rmdup_bam}{Input deduped and sorted bam file}
