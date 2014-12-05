@@ -9,6 +9,8 @@ The latest version can be installed with [devtools](http://www.rstudio.com/produ
 
 Requires [ggplot2](http://ggplot2.org/)
 
+Example files are in data/
+
 ```{R}
 install.packages("ggplot2")
 install.packages("devtools")
