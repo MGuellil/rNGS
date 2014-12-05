@@ -26,9 +26,9 @@ drive_cutadapt <- function(raw_fastq,
   
   # create output files
   output_file_name_fastq <- paste0(strsplit(basename(raw_fastq), "_")[[1]][1],
-                            "_cutadap.fastq")
+                            "_cutadapt.fastq")
   output_file_name_log <- paste0(strsplit(basename(raw_fastq), "_")[[1]][1],
-                                   "_cutadap.log")
+                                   "_cutadapt.log")
   output_file_full_path_fastq <- paste0(dirname(raw_fastq),
                                  "/",
                                  output_file_name_fastq)
