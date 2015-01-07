@@ -16,7 +16,7 @@
 bwa_samse <- function(fastq_file, genome, read_groups, sai_file, sam_file){  
 
   # format read group line 
-  read_group_formated = paste0("'", read_groups, "'")
+  read_group_formated <- paste0("'", read_groups, "'")
  
   # form my BWA samse string
   bwa_samse_string <- paste("bwa samse -r",
